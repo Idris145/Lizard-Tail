@@ -13,6 +13,6 @@ namespace Lizard_Tail
     /// </summary>
     public partial class App : Application
     {
-
+        int test = 1; 
     }
 }
