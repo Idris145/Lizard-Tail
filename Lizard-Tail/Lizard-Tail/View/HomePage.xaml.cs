@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Lizard_Tail.ViewModel;
-using Lizard_Tail.Model;
 
-namespace Lizard_Tail
+namespace Lizard_Tail.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomePage : UserControl
     {
-        public MainWindow()
+        public HomePage()
         {
             InitializeComponent();
-            HomePageViewModel hp = new HomePageViewModel();
-            var x = new App_Model();
-            hp.LoginButtonText = "Register";
-            this.HomePage.DataContext = hp;
         }
     }
 }
