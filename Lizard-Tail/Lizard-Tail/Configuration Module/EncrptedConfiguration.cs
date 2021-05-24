@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lizard_Tail.ConfigurationModule
 {
-
-    public class Configuration
+    class EncrptedConfiguration
     {
         public List<privateKeyConfiguration> privateKeys { get; set; }
         public string password { get; set; }

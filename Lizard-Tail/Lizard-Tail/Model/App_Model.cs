@@ -14,26 +14,8 @@ namespace Lizard_Tail.Model
         Configuration configuration;
         public App_Model()
         {
-            if (File.Exists(Resources.configurationFilePath))
-            {
-                this.configuration = ConfigurationManager.deserialize(Resources.configurationFilePath);
-            }
-            else
-            {
-                this.configuration = new Configuration();
-            }
-            setPassword("haha");
-            ConfigurationManager.updateConfiguration(this.configuration, "123456");
+            var x = ConfigurationManager.getConfigFromJson(Resources.configurationFilePath);
         }
-        private void setPassword(string password)
-        {
-            string passwordCipher = TripleDES.Apply3DES(password);
-            this.configuration.PasswordCipher = passwordCipher;
-        }
-        private void setPrivateKey(string privateKey)
-        {
-            string privateKeyCipher = TripleDES.Apply3DES(privateKey);
-            this.configuration.PrivateKeyCipher = privateKeyCipher;
-        }
+        
     }
 }

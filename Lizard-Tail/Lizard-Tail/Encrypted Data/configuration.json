@@ -1,0 +1,18 @@
+{
+    "password":"123456",
+    "numberOfEncryptions": 5,
+    "privateKeys":[
+        {
+            "currency":"ADA",
+            "privateKey":"blavlalval"
+        },
+        {
+            "currency":"BTC",
+            "privateKey":"blavlalasddasfasfval"
+        },
+        {
+            "currency":"XRP",
+            "privateKey":"blasassasfffggvlalval"
+        }
+    ]
+}

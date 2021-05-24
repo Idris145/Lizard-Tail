@@ -7,46 +7,31 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
 namespace Lizard_Tail.ConfigurationModule
 {
     public class ConfigurationManager
     {
-        public static void serialize(Configuration configuration, string path)
+
+
+        public static Configuration getConfigFromJson(string path)
         {
-            var serializer = new XmlSerializer(configuration.GetType());
-            using (var writer = XmlWriter.Create(path))
+
+            Configuration configuration = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText(Resources.configurationFilePath));
+            
+            foreach (var x in configuration.privateKeys)
             {
-                serializer.Serialize(writer, configuration);
+                printMessageToConsole(x.currency);
+                printMessageToConsole(x.privateKey);
             }
-        }
-        public static Configuration deserialize(string path)
-        {
-            var serializer = new XmlSerializer(typeof(Configuration));
-            Configuration configuratioin= new Configuration();
-            using (var reader = XmlReader.Create(path))
-            {
-                configuratioin = (Configuration)serializer.Deserialize(reader);
-            }
-            return configuratioin;
+
+            return configuration;
+
         }
         
-        public static void updateConfiguration(Configuration configuration, string password)
+        public static string encryptConfiguration(Configuration configuration)
         {
-            if (File.Exists(Resources.configurationFilePath))
-            {
-                var lastConfiguration = deserialize(Resources.configurationFilePath);
-                var lastPassword = TripleDES.Reverse3DES(lastConfiguration.PasswordCipher);
-                if (password.Equals(lastPassword))
-                {
-                    serialize(configuration, Resources.configurationFilePath);
-                    printMessageToConsole("update successful");
-                }
-            }
-            else
-            {
-                serialize(configuration, Resources.configurationFilePath);
-                printMessageToConsole("update successful");
-            }
+            return "";
         }
         public static void printMessageToConsole(string message)
         {

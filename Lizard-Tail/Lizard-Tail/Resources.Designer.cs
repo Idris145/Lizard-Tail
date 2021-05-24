@@ -61,7 +61,7 @@ namespace Lizard_Tail {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ../../Encrypted Data/configuration.xml.
+        ///   Looks up a localized string similar to ../../Encrypted Data/configuration.json.
         /// </summary>
         internal static string configurationFilePath {
             get {
