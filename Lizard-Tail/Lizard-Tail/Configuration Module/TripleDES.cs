@@ -4,9 +4,8 @@ using System.Security.Cryptography;
 public class TripleDES
 {
 
-    public static string Apply3DES(string raw)
+    public static byte[] Apply3DES(string raw)
     {
-        string result = "";
         try
         {
             // Create 3DES that generates a new key and initialization vector (IV).  
@@ -14,9 +13,8 @@ public class TripleDES
             using (TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider())
             {
                 // Encrypt string  
-                byte[] encrypted = Encrypt(raw, tdes.Key, tdes.IV);
+                return Encrypt(raw, tdes.Key, tdes.IV);
                 // Print encrypted string  
-                result = System.Text.Encoding.UTF8.GetString(encrypted);
             }
             
         }
@@ -24,9 +22,13 @@ public class TripleDES
         {
             Console.WriteLine(exp.Message);
         }
-        return result;
+        /**
+         This should never be reached at runtime
+         
+         */
+        return null;
     }
-    public static string Reverse3DES(string cipher)
+    public static string Reverse3DES(byte[] cipher)
     {
         string result = "";
         try
@@ -38,8 +40,7 @@ public class TripleDES
                 // Encrypt string  
 
                 // Decrypt the bytes to a string.  
-                byte[] bytes = System.Text.Encoding.ASCII.GetBytes(cipher);
-                result = Decrypt(bytes, tdes.Key, tdes.IV);
+                result = Decrypt(cipher, tdes.Key, tdes.IV);
                 // Print decrypted string. It should be same as raw data 
             }
 

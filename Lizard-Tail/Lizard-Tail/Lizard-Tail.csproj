@@ -60,8 +60,6 @@
     </ApplicationDefinition>
     <Compile Include="Configuration Module\Configuration.cs" />
     <Compile Include="Configuration Module\ConfigurationManager.cs" />
-    <Compile Include="Configuration Module\EncrptedConfiguration.cs" />
-    <Compile Include="Configuration Module\privateKeyConfiguration.cs" />
     <Compile Include="Configuration Module\TripleDES.cs" />
     <Compile Include="Model\App_Model.cs" />
     <Compile Include="Model\HomePageModel.cs" />
@@ -113,6 +111,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Encrypted Data\configuration.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -122,8 +121,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Encrypted Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

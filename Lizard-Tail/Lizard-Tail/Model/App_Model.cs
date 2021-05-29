@@ -14,7 +14,19 @@ namespace Lizard_Tail.Model
         Configuration configuration;
         public App_Model()
         {
-            var x = ConfigurationManager.getConfigFromJson(Resources.configurationFilePath);
+            var realConfig = ConfigurationManager.getConfigFromJson(Resources.configurationFilePath);
+            /*var encryptedConfig = new Configuration();
+            encryptedConfig.password = TripleDES.Apply3DES(realConfig.password);
+            foreach (var privateKey in realConfig.privateKeys)
+            {
+                var encryptedKey = TripleDES.Apply3DES(privateKey.privateKey);
+                var encryptedCurrency = TripleDES.Apply3DES(privateKey.currency);
+                var pkc = new privateKeyConfiguration();
+                pkc.currency = encryptedCurrency;
+                pkc.privateKey = encryptedKey;
+                encryptedKeys.Add(pkc);
+            }
+            encryptedConfig.privateKeys = encryptedKeys;*/
         }
         
     }
